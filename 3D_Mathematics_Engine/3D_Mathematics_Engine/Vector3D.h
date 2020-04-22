@@ -37,10 +37,16 @@ namespace Maths
 		float operator*(const Vector3D Multiplication);
 
 		// Cross Product
-
 		Vector3D CrossProduct(const Vector3D vector);
 		Vector3D operator%(const Vector3D vector);
 		void operator%=(const Vector3D vector);
+
+		// Magnitude
+		float Magnitude();
+
+		// Normalising
+
+		void Normalise();
 	};
 
 }
