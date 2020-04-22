@@ -24,9 +24,13 @@ namespace Maths
 		Vector3D operator-(const Vector3D& vector);
 		void operator-=(const Vector3D& vector);
 
-
+		// Multiplication
+		Vector3D operator*(const float Multiplication);
+		void operator*=(const float Multiplication);
 		
-
+		// Division
+		Vector3D operator/(const float Division);
+		void operator/=(const float Division);
 	};
 
 }
