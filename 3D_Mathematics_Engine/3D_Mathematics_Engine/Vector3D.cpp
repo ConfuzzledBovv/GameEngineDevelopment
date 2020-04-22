@@ -52,4 +52,24 @@ namespace Maths
 		y -= vector.y;
 		z -= vector.z;
 	}
+	Vector3D Vector3D::operator*(const float Multiplication)
+	{
+		return Vector3D(x * Multiplication, y * Multiplication, z * Multiplication);
+	}
+	void Vector3D::operator*=(const float Multiplication)
+	{
+		x *= Multiplication;
+		y *= Multiplication;
+		z *= Multiplication;
+	}
+	Vector3D Vector3D::operator/(const float Division)
+	{
+		return Vector3D(x / Division, y / Division, z / Division);
+	}
+	void Vector3D::operator/=(const float Division)
+	{
+		x /= Division;
+		y /= Division;
+		z /= Division;
+	}
 }

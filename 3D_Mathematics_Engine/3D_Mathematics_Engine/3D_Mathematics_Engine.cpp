@@ -12,7 +12,6 @@ int main()
 
 	Vector3D Vector4(1, 2, 3);
 
-	Vector2 = Vector1 + Vector4;
 
 	std::cin >> test;
 
