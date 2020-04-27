@@ -23,9 +23,28 @@ namespace Maths
 		void operator+=(const Matrix& matrix);
 
 		// Subtraction
-
 		Matrix operator-(const Matrix& matrix);
 		void operator-=(const Matrix& matrix);
+
+		// Scalar Multiplication
+		Matrix operator*(const float Multiplication);
+		void operator*=(const float Multiplication);
+
+		// Division
+		Matrix operator/(const float Division);
+		void operator/=(const float Division);
+
+		// Matrix Multiplication
+		Matrix operator*(const Matrix& matrix);
+		void operator*=(const Matrix& matrix);
+
+		// Identity Matrix
+		void SetAsIdentityMatrix();
+
+		//Set Inverse
+		void SetMatrixAsInverseOf(const Matrix& matrix);
+		const Matrix GetInverseOfMatrix();
+		void InvertMatrix();
 
 	};
 
