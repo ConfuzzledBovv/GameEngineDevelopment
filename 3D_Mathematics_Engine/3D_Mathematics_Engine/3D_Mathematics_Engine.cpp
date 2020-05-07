@@ -1,23 +1,18 @@
-#include <iostream>
+#include "iostream"
 #include "Vector3D.h"
+#include "Matrix.h"
 
 using namespace Maths;
 
 int main()
 {
 	char test;
-	Maths::Vector3D Vector1(2, 3, 1);
-	Maths::Vector3D Vector2(1, 2, 0);
 
-	Vector3D Vector3 = Vector1.CrossProduct(Vector2);
+	Matrix matrix(2, 1, 4, 3, 4, 1, 2, 1, 1);
 
-	Vector3D Vector4 = Vector1 % Vector2;
+	Matrix matrix2 = matrix.GetInverseOfMatrix();
 
-	Vector1 %= Vector2;
-
-
-
+	matrix2.Show();
 	std::cin >> test;
-
 	return 0;
 }

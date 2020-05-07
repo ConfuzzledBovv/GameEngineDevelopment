@@ -1,5 +1,5 @@
 #include "Vector3D.h"
-
+#include "iostream"
 namespace Maths
 {
 	Vector3D::Vector3D()
@@ -93,5 +93,25 @@ namespace Maths
 	void Vector3D::operator%=(const Vector3D vector)
 	{
 		*this = CrossProduct(vector);
+	}
+	float Vector3D::Magnitude()
+	{
+		float _magnitude = std::sqrt(x * x + y * y + z * z);
+		
+		return _magnitude;
+	}
+	void Vector3D::Normalise()
+	{
+		float magnitude = std::sqrt(x * x + y * y + z * z);
+
+		// If its not a unit vector
+		if (magnitude > 1)
+		{
+			float normal = 1 / magnitude;
+
+			x *= normal;
+			y *= normal;
+			z *= normal;
+		}
 	}
 }
