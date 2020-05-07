@@ -89,21 +89,7 @@ namespace Maths
 	{
 		return Quaternion(w * value, vector * value);
 	}
-	float Quaternion::Norm()
-	{
-		return(std::sqrt(w * w + vector * vector));
-	}
 
-	void Quaternion::Normalise()
-	{
-		if (Norm() != 0)
-		{
-			float value = 1 / Norm();
-
-			w *= value;
-			vector *= value;
-		}
-	}
 	void Quaternion::DegreesToRadians()
 	{
 		float degrees = w;
@@ -116,6 +102,7 @@ namespace Maths
 		}
 		w = 0;
 	}
+
 	void Quaternion::Inverse()
 	{
 		vector.x = -vector.x;

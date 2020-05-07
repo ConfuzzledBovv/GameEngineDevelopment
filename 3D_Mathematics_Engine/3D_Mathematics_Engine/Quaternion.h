@@ -43,10 +43,6 @@ namespace Maths
 		void operator*=(const float value);
 		Quaternion operator*(const float value);
 
-		// Normalising 
-		float Norm();
-		void Normalise();
-
 		void DegreesToRadians();
 		void Inverse();
 		
