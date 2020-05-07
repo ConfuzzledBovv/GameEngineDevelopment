@@ -9,18 +9,17 @@ int main()
 {
 	char test;
 	Quaternion quat1(0, 1, 0, 0);	
-	Quaternion quat2(90, 1, 0, 0);
+	Quaternion quat2(90, 1, 0, 1);
+	Vector3D vect1(3, 2, 3);
 
-	quat1.Show();
-	quat2.Show();
+	vect1.Show();
+	vect1.SetPitch(90);
+	vect1.Show();
 
-	quat2.Inverse();
-	quat2.Show();
-	quat2.Inverse();
-	quat2.Show();
 
-	quat2 *= quat1;
-	quat2.Show();
+	
 	std::cin >> test;
+
+
 	return 0;
 }

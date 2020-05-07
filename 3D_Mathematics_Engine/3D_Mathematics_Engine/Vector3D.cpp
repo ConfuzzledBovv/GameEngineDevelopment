@@ -1,5 +1,6 @@
 #include "Vector3D.h"
 #include "iostream"
+#include "Quaternion.h"
 namespace Maths
 {
 	Vector3D::Vector3D()
@@ -178,5 +179,59 @@ namespace Maths
 	{
 		x = y = z = 1;
 	}
+
+	void Vector3D::SetRoll(float angle)
+	{
+		float rollCos = cos(angle * M_PI / 180);
+		float rollSin = sin(angle * M_PI / 180);
+		float _y = y;
+
+		y = rollCos * _y - rollSin * z;
+		z = rollCos * z + rollSin * _y;
+	}
+
+	void Vector3D::SetPitch(float angle)
+	{
+		float rollCos = cos(angle * M_PI / 180);
+		float rollSin = sin(angle * M_PI / 180);
+		float _x = x;
+
+		x = rollCos * _x + rollSin * z;
+		z = rollCos * z - rollSin * _x;	
+	}
+
+	void Vector3D::SetYaw(float angle)
+	{
+		float rollCos = cos(angle * M_PI / 180);
+		float rollSin = sin(angle * M_PI / 180);
+		float _x = x;
+
+		x = rollCos * _x - rollSin * y;
+		y = rollCos * y + rollSin * _x;
+
+	}
+
+	void Vector3D::RotateAll(float angle)
+	{
+		float rollCos = cos(angle * M_PI / 180);
+		float rollSin = sin(angle * M_PI / 180);
+		float _x = x;
+		float _y = y;
+		float _z = z;
+
+		// Set Roll
+		y = rollCos * _y - rollSin * _z;
+		z = rollCos * _z + rollSin * _y;
+
+		// Set Pitch
+		x = rollCos * _x + rollSin * _z;
+		z = rollCos * _z - rollSin * _x;
+
+		// Set Yaw
+		x = rollCos * _x - rollSin * _y;
+		y = rollCos * _y + rollSin * _x;
+	}
+
+
 
 }

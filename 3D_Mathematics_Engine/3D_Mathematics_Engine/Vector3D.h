@@ -1,4 +1,5 @@
 #pragma once
+#define M_PI       3.14159265358979323846f
 namespace Maths
 {
 	class Vector3D
@@ -67,7 +68,11 @@ namespace Maths
 		// One Vector
 		void OneVector();
 
-
+		//Rotations
+		void SetRoll(float angle);
+		void SetPitch(float angle);
+		void SetYaw(float angle);
+		void RotateAll(float angle);
 		
 	};
 
