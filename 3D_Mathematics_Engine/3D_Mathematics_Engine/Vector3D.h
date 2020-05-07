@@ -16,6 +16,8 @@ namespace Maths
 		// Deconstructor
 		~Vector3D();
 
+		void Show();
+
 		// Addition
 		Vector3D operator+(const Vector3D& vector);
 		void operator+=(const Vector3D& vector);
@@ -24,8 +26,9 @@ namespace Maths
 		Vector3D operator-(const Vector3D& vector);
 		void operator-=(const Vector3D& vector);
 
-		// Multiplication
+		// Scalar Multiplication
 		Vector3D operator*(const float Multiplication);
+		void operator*=(const float Multiplication);
 		void operator*=(const Vector3D Multiplication);
 		
 		// Division
@@ -45,8 +48,27 @@ namespace Maths
 		float Magnitude();
 
 		// Normalising
-
 		void Normalise();
+
+		// Zero
+		void ZeroVector();
+		const bool IsZero();
+
+		// Absolute
+		void AbsoluteVector();
+
+		// Equal
+		const bool IsEqual(Vector3D& vector);
+
+		// Distance
+		float Distance(Vector3D& vector);
+		bool IsNear(Vector3D& vector, float);
+
+		// One Vector
+		void OneVector();
+
+
+		
 	};
 
 }

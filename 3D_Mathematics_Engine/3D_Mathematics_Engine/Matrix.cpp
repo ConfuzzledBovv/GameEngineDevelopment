@@ -126,6 +126,8 @@ namespace Maths
 		matrixData[2] = matrixData[2] * matrix.matrixData[0] + matrixData[5] * matrix.matrixData[1] + matrixData[8] * matrix.matrixData[2];
 		matrixData[5] = matrixData[2] * matrix.matrixData[3] + matrixData[5] * matrix.matrixData[4] + matrixData[8] * matrix.matrixData[5];
 		matrixData[8] = matrixData[2] * matrix.matrixData[6] + matrixData[5] * matrix.matrixData[7] + matrixData[8] * matrix.matrixData[8];
+
+
 	}
 	void Matrix::SetAsIdentityMatrix()
 	{
@@ -191,5 +193,39 @@ namespace Maths
 	{
 		SetMatrixAsInverseOf(*this);
 	}
+	void Matrix::SetTranspose(const Matrix & matrix)
+	{
+		matrixData[0] = matrix.matrixData[0];
+		matrixData[3] = matrix.matrixData[1];
+		matrixData[6] = matrix.matrixData[2];
+
+		matrixData[1] = matrix.matrixData[3];
+		matrixData[4] = matrix.matrixData[4];
+		matrixData[7] = matrix.matrixData[5];
+
+		matrixData[2] = matrix.matrixData[6];
+		matrixData[5] = matrix.matrixData[7];
+		matrixData[8] = matrix.matrixData[8];
+
+	}
+	const Matrix Matrix::GetTranspose()
+	{
+		Matrix Result;
+		Result.SetTranspose(*this);
+		return Result;
+	}
+
+	Vector3D Matrix::operator*(const Vector3D & vector)
+	{
+		return Vector3D(matrixData[0] * vector.x + matrixData[3] * vector.y + matrixData[6] * vector.z,
+				matrixData[1] * vector.x + matrixData[4] * vector.y + matrixData[7] * vector.z,
+				matrixData[2] * vector.x + matrixData[5] * vector.y + matrixData[8] * vector.z);
+	}
+
+	Vector3D Matrix::TransformVectorByMatrix(const Vector3D & vector)
+	{
+		return(*this * vector);
+	}
+
 }
 

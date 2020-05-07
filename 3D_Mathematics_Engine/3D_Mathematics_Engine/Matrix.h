@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Vector3D.h"
+
 namespace Maths
 {
 	class Matrix
@@ -45,6 +47,14 @@ namespace Maths
 		void SetMatrixAsInverseOf(const Matrix& matrix);
 		const Matrix GetInverseOfMatrix();
 		void InvertMatrix();
+
+		// Transpose
+		void SetTranspose(const Matrix& matrix);
+		const Matrix GetTranspose();
+
+		// Multiply vector by matrix
+		Vector3D operator*(const Vector3D& vector);
+		Vector3D TransformVectorByMatrix(const Vector3D& vector);
 
 	};
 
