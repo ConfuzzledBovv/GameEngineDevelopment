@@ -32,6 +32,10 @@ namespace Maths
 	{
 
 	}
+	void Vector3D::Show()
+	{
+		std::cout << x << ", " << y << ", " << z << std::endl;
+	}
 	Vector3D Vector3D::operator+(const Vector3D & vector)
 	{
 		return Vector3D(x + vector.x, y + vector.y, z + vector.z);
@@ -55,6 +59,12 @@ namespace Maths
 	Vector3D Vector3D::operator*(const float Multiplication)
 	{
 		return Vector3D(x * Multiplication, y * Multiplication, z * Multiplication);
+	}
+	void Vector3D::operator*=(const float Multiplication)
+	{
+		x *= Multiplication;
+		y *= Multiplication;
+		z *= Multiplication;
 	}
 	void Vector3D::operator*=(const Vector3D Multiplication)
 	{
@@ -114,4 +124,59 @@ namespace Maths
 			z *= normal;
 		}
 	}
+	void Vector3D::ZeroVector()
+	{
+		x = 0;
+		y = 0;
+		z = 0;
+	}
+	const bool Vector3D::IsZero()
+	{
+		if (x == 0 && y == 0 && z == 0)
+		{
+			return true;
+		}
+		return false;
+	}
+	void Vector3D::AbsoluteVector()
+	{
+		x = std::abs(x);
+		y = std::abs(y);
+		z = std::abs(z);
+	}
+	const bool Vector3D::IsEqual(Vector3D & vector)
+	{
+		if (x == vector.x && y == vector.y && z == vector.z)
+		{
+			return true;
+		}
+
+		return false;
+	}
+	float Vector3D::Distance(Vector3D & vector)
+	{
+		float points[3];
+		points[0] = x - vector.x;
+		points[1] = y - vector.y;
+		points[2] = z - vector.z;
+		
+		points[0] *= points[0];
+		points[1] *= points[1];
+		points[2] *= points[2];
+
+		return std::sqrt(points[0] + points[1] + points[2]);
+	}
+	bool Vector3D::IsNear(Vector3D & vector, float distance)
+	{
+		if (Distance(vector) < distance)
+		{
+			return true;
+		}
+		return false;
+	}
+	void Vector3D::OneVector()
+	{
+		x = y = z = 1;
+	}
+
 }
